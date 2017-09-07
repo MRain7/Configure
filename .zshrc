@@ -5,7 +5,10 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+# 简洁主题
+ZSH_THEME="bureau"
+# 常规主题
+#ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -115,5 +118,26 @@ export LANG=en_US.UTF-8
  alias -s zip='unzip'
  alias -s bz2='tar -xjvf'
 
+#source  ~/安装/Mac\ 系统软件/Terminal/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #. ~/powerLine/powerline/bindings/zsh/powerline.zsh
 export PATH="/usr/local/sbin:$PATH"
+
+# proxy 终端翻墙设置(终端都默认走)：开pon,闭poff：重定向协议下的流量走哪个端口，ss-ng的端口默认为1087，lantern的默认端口自行查看
+export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+pon () {
+    export http_proxy="http://127.0.0.1:1087/"
+    export https_proxy="http://127.0.0.1:1087/"
+    export ftp_proxy="http://127.0.0.1:1087/"
+}
+poff () {
+    unset http_proxy
+    unset https_proxy
+    unset ftp_proxy
+}
+# lantern
+plantern () {
+    export http_proxy="http://127.0.0.1:52567/"
+    export https_proxy="http://127.0.0.1:52567/"
+    export ftp_proxy="http://127.0.0.1:52567/"
+}
+
